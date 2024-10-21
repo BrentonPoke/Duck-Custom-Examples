@@ -38,7 +38,7 @@ DuckDisplay* display = NULL;
 MamaDuck duck;
 
 auto timer = timer_create_default();
-const int INTERVAL_MS = 60000;
+const int INTERVAL_MS = 10000;
 char message[32];
 int counter = 1;
 
@@ -79,8 +79,8 @@ void loop() {
 bool runSensor(void *) {
 
 
-    float isCharging = axp.isCharging();
-    boolean isFullyCharged = axp.isBatChagerDoneIrq();
+    int isCharging = axp.isCharging();
+    boolean isFullyCharged = axp.isBatChargeDoneIrq();
     float batteryVoltage = axp.getBattVoltage();
     float batteryDischarge = axp.getAcinCurrent();
     float getTemp = axp.getTemperature();
